@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightbox</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./css/fontawesome.css">
+  <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <section class="page-header">
+      <h1 class="page-title">Simple Lightbox Plugin</h1>
+      <p class="page-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non corporis, earum ullam
+        officiis quas deleniti illo eaque ipsa! Voluptas tempore reiciendis harum aperiam. Eveniet, minus! Et
+        temporibus rerum minima. Voluptatum.</p>
+    </section>
+    <section class="section">
+      <div class="section-title">
+        <h3>Single Image</h3>
+        <hr class="title-divider">
+      </div>
+      <div class="showcase-item">
+        <img src="./assets/images/set1/img-1.jpg" alt="" data-title="Title" data-desc="Description">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h3> Image Grid</h2>
+          <hr class="title-divider">
+      </div>
+      <div class="showcase">
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-1.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-2.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-3.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-4.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-5.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div class="showcase-item">
+          <img src="./assets/images/set1/img-6.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h3>YouTube Video</h3>
+        <hr class="title-divider">
+      </div>
+      <!-- <div class="showcase-item">
+                <iframe id="ytplayer" type="text/html" width="auto" height="auto"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&color=white" frameborder="0"
+                    allowfullscreen>
+            </div> -->
+      <div class="showcase-item">
+        <iframe width="auto" height="auto" src="https://www.youtube.com/embed/pWKCx717lFU" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h3>Vimeo Video</h3>
+        <hr class="title-divider">
+      </div>
+
+      <div class="showcase-item">
+        <iframe src="https://player.vimeo.com/video/298067329?h=4e3c11fb75 width=" auto" height="auto" frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h3>HTML Video</h3>
+        <hr class="title-divider">
+      </div>
+      <div class="showcase-item">
+        <video width="auto" controls>
+          <source src="./assets/videos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <div id="lightbox">
+      <div id="lightbox-wrap">
+        <button id="lightbox-close-btn" class="lightbox-btn">
+          <i class="fas fa-times lb-icon"></i>
+        </button>
+        <div id="lightbox-content">
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
