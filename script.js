@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Welcome to simple lightbox plugin");
+    console.log("Welcome to simple slb plugin");
 
     let shwocaseItems = document.querySelectorAll(".showcase-item");
-    let lightbox = document.getElementById("lightbox");
-    let lightboxWrap = document.getElementById("lightbox-wrap");
-    let lightboxContent = document.getElementById("lightbox-content");
-    let lightboxActiveContainer = document.getElementById("lightbox-active-container");
-    let lightboxCloseBtn = document.getElementById("lightbox-close-btn");
+    let slb = document.getElementById("slb");
+    let slbWrap = document.getElementById("slb-wrap");
+    let slbContent = document.getElementById("slb-content");
+    let slbActiveContainer = document.getElementById("slb-active-container");
+    let slbCloseBtn = document.getElementById("slb-close-btn");
 
     shwocaseItems.forEach((showcaseItem) => {
         showcaseItem.addEventListener("click", function (e) {
@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
             newNode.src = _source;
             // newNode.style.height = "";
             // newNode.style.width = "auto";
-            newNode.classList.add('lightbox-active-media');
-            appendElement(lightboxActiveContainer, newNode);
-            console.log(lightboxWrap);
-            lightbox.classList.add("lb-active");
+            newNode.classList.add('slb-active-media');
+            appendElement(slbActiveContainer, newNode);
+            console.log(slbWrap);
+            slb.classList.add("slb-active");
         });
 
-        lightboxCloseBtn.addEventListener("click", function (e) {
-            closeLightbox();
+        slbCloseBtn.addEventListener("click", function (e) {
+            closeslb();
         });
 
     });
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         parent.appendChild(child);
     }
 
-    function closeLightbox() {
-        lightbox.classList.remove("lb-active");
+    function closeslb() {
+        slb.classList.remove("slb-active");
     }
 });

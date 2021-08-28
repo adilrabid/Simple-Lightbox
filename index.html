@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lightbox</title>
+  <title>Simple Lightbox</title>
   <link rel="stylesheet" href="./style.css">
   <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
@@ -99,86 +99,85 @@
     </section>
 
 
-    <!-- lightbox popup -->
-    <div id="lightbox">
-      <div id="lightbox-wrap" class="lb-place-center-col">
-        <button id="lightbox-close-btn" class="lightbox-btn">
-          <i class="icon-x lb-icon-lg"></i>
+    <!-- slb popup -->
+    <div id="slb">
+      <div id="slb-wrap" class="slb-place-center-col">
+        <button id="slb-close-btn" class="slb-btn">
+          <i class="icon-x slb-icon-lg"></i>
         </button>
-        <div id="lightbox-content">
-          <div id="lightbox-content-row">
-            <div class="lightbox-content-col lightbox-nav-btns lb-place-center-row">
-              <button id="lightbox-prev-btn" class="lightbox-btn">
-                <i class="icon-chevron-left lb-icon-lg"></i>
+        <div id="slb-content">
+          <div id="slb-content-row">
+            <div class="slb-content-col slb-nav-btns slb-place-center-row">
+              <button id="slb-prev-btn" class="slb-btn">
+                <i class="icon-chevron-left slb-icon-lg"></i>
               </button>
             </div>
-            <div id="lightbox-display-content" class="lightbox-content-col lb-place-center-row">
-              <div id="lightbox-active-container">
+            <div id="slb-display-content" class="slb-content-col slb-place-center-row">
+              <div id="slb-active-container">
                 <!-- image goes here -->
               </div>
             </div>
-            <div class="lightbox-content-col lightbox-nav-btns lb-place-center-row">
-              <button id="lightbox-next-btn" class="lightbox-btn">
-                <i class="icon-chevron-right lb-icon-lg"></i>
+            <div class="slb-content-col slb-nav-btns slb-place-center-row">
+              <button id="slb-next-btn" class="slb-btn">
+                <i class="icon-chevron-right slb-icon-lg"></i>
               </button>
             </div>
           </div>
 
-          <div id="lightbox-display-controls" class="lb-place-center-row">
-            <button id="lightbox-zoom-in-btn" class="lightbox-btn">
-              <i class="icon-zoom-in lb-icon"></i>
+          <div id="slb-display-controls" class="slb-place-center-row">
+            <button id="slb-zoom-in-btn" class="slb-btn-control">
+              <i class="icon-zoom-in slb-icon"></i>
             </button>
-            <button id="lightbox-zoom-out-btn" class="lightbox-btn">
-              <i class="icon-zoom-out lb-icon"></i>
+            <button id="slb-zoom-out-btn" class="slb-btn-control">
+              <i class="icon-zoom-out slb-icon"></i>
             </button>
-            <button id="lightbox-rotate-left-btn" class="lightbox-btn">
-              <i class="icon-arrow-counterclockwise lb-icon"></i>
+            <button id="slb-rotate-left-btn" class="slb-btn-control">
+              <i class="icon-arrow-counterclockwise slb-icon"></i>
             </button>
-            <button id="lightbox-rotate-right-btn" class="lightbox-btn">
-              <i class="icon-arrow-clockwise lb-icon"></i>
+            <button id="slb-rotate-right-btn" class="slb-btn-control">
+              <i class="icon-arrow-clockwise slb-icon"></i>
             </button>
-            <button id="lightbox-fullscreen-btn" class="lightbox-btn">
-              <i class="icon-fullscreen lb-icon"></i>
+            <button id="slb-fullscreen-btn" class="slb-btn-control">
+              <i class="icon-fullscreen slb-icon"></i>
             </button>
-            <button id="lightbox-fullscreen-exit-btn" class="lightbox-btn">
-              <i class="icon-fullscreen-exit lb-icon"></i>
+            <button id="slb-fullscreen-exit-btn" class="slb-btn-control">
+              <i class="icon-fullscreen-exit slb-icon"></i>
             </button>
-
           </div>
 
-          <div id="lightbox-navigations">
-            <div id="lightbox-pagination">
-              <div class="lb-dot-nav">
-                <span class="lb-dot-nav-btn"></span>
+          <div id="slb-navigation">
+            <div id="slb-navigation-dots">
+              <div class="slb-dot-nav">
+                <span class="slb-dot-nav-btn"></span>
               </div>
-              <div class="lb-dot-nav">
-                <span class="lb-dot-nav-btn"></span>
+              <div class="slb-dot-nav">
+                <span class="slb-dot-nav-btn"></span>
               </div>
-              <div class="lb-dot-nav">
-                <span class="lb-dot-nav-btn"></span>
+              <div class="slb-dot-nav">
+                <span class="slb-dot-nav-btn"></span>
               </div>
-              <div class="lb-dot-nav">
-                <span class="lb-dot-nav-btn"></span>
+              <div class="slb-dot-nav">
+                <span class="slb-dot-nav-btn"></span>
               </div>
             </div>
 
-            <div id="lightbox-thumbs">
-              <div class="lb-thumbs-item">
+            <div id="slb-navigation-thumbs">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-1.jpg" alt="">
               </div>
-              <div class="lb-thumbs-item">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-2.jpg" alt="">
               </div>
-              <div class="lb-thumbs-item">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-4.jpg" alt="">
               </div>
-              <div class="lb-thumbs-item">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-6.jpg" alt="">
               </div>
-              <div class="lb-thumbs-item">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-3.jpg" alt="">
               </div>
-              <div class="lb-thumbs-item">
+              <div class="slb-thumbs-item">
                 <img src="./assets/images/set1/img-5.jpg" alt="">
               </div>
 
