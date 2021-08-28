@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let _source = e.target.parentElement.href;
             let _nodeName = e.target.nodeName;
 
-            let newNode = document.createElement(_nodeName)
+            let newNode = document.createElement(_nodeName);
             newNode.src = _source;
-            newNode.style.height = "100%";
-            newNode.style.width = "auto";
-            newNode.classList.add('lightbox-active-item');
+            // newNode.style.height = "";
+            // newNode.style.width = "auto";
+            newNode.classList.add('lightbox-active-media');
             appendElement(lightboxActiveContainer, newNode);
             console.log(lightboxWrap);
             lightbox.classList.add("lb-active");
