@@ -1,3 +1,69 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?eyzikm');
+  src:  url('fonts/icomoon.eot?eyzikm#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?eyzikm') format('truetype'),
+    url('fonts/icomoon.woff?eyzikm') format('woff'),
+    url('fonts/icomoon.svg?eyzikm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-clockwise:before {
+  content: "\e900";
+}
+.icon-arrow-counterclockwise:before {
+  content: "\e901";
+}
+.icon-chevron-left:before {
+  content: "\e902";
+}
+.icon-chevron-right:before {
+  content: "\e903";
+}
+.icon-dash-square:before {
+  content: "\e904";
+}
+.icon-fullscreen:before {
+  content: "\e905";
+}
+.icon-fullscreen-exit:before {
+  content: "\e906";
+}
+.icon-plus-square:before {
+  content: "\e907";
+}
+.icon-x:before {
+  content: "\e908";
+}
+.icon-x-lg:before {
+  content: "\e909";
+}
+.icon-zoom-in:before {
+  content: "\e90a";
+}
+.icon-zoom-out:before {
+  content: "\e90b";
+}
+
+/* main app */
+  
 :root{
 	--lb-btm-color: rgb(138, 138, 138);
 	--lb-btm-color-active: white;
@@ -112,6 +178,8 @@ body {
 	display: block;
 }
 
+/* lightbox */
+
 #lightbox {
 	position: fixed;
 	top: 0;
@@ -180,12 +248,20 @@ body {
 }
 
 .lb-icon {
+	font-size: 20px;
+	color: var(--lb-btm-color);
+	transition: 200ms;
+}
+.lb-icon-lg {
 	font-size: 25px;
 	color: var(--lb-btm-color);
 	transition: 200ms;
 }
 
 .lightbox-btn:hover .lb-icon {
+	color: var(--lb-btm-color-active);
+}
+.lightbox-btn:hover .lb-icon-lg {
 	color: var(--lb-btm-color-active);
 	transform: scale(1.2);
 }
@@ -222,6 +298,10 @@ img.lightbox-active-media{
     object-fit: contain;
 	max-height: 480px;
 	max-width: 100%;
+}
+
+#lightbox-display-controls{
+	padding: 10px 0px;
 }
 
 #lightbox-navigations{
