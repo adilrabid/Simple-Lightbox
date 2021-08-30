@@ -6,186 +6,210 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Lightbox</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/lightbox.css">
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" class="container">
     <section class="page-header">
       <h1 class="page-title">Simple Lightbox Plugin</h1>
       <p class="page-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non corporis, earum ullam
         officiis quas deleniti illo eaque ipsa! Voluptas tempore reiciendis harum aperiam. Eveniet, minus! Et
         temporibus rerum minima. Voluptatum.</p>
     </section>
+
     <section class="section">
-      <div class="section-title">
+      <div class="section-header">
         <h3>Single Image</h3>
         <hr class="title-divider">
       </div>
-      <a href="./assets/images/set1/img-1.jpg" class="showcase-item">
-        <img src="./assets/images/set1/img-1.jpg" alt="" data-title="Title" data-desc="Description">
-      </a>
+      <div class="showcase">
+        <div data-src="./assets/images/set1/img-1.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/img-1.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+      </div>
     </section>
 
     <section class="section">
-      <div class="section-title">
+      <div class="section-header">
         <h3> Image Grid</h2>
           <hr class="title-divider">
       </div>
-      <div class="showcase">
-        <a href="./assets/images/set1/img-1.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-1.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
-        <a href="./assets/images/set1/img-2.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-2.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
-        <a href="./assets/images/set1/img-3.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-3.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
-        <a href="./assets/images/set1/img-4.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-4.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
-        <a href="./assets/images/set1/img-5.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-5.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
-        <a href="./assets/images/set1/img-6.jpg" class="showcase-item">
-          <img src="./assets/images/set1/img-6.jpg" alt="" data-title="Title" data-desc="Description">
-        </a>
+      <div class="showcase" data-nav="thumb">
+        <div 
+        data-src="./assets/images/set1/img-1.jpg" 
+        data-type="image" class="showcase-item">
+          <img 
+          src="./assets/images/set1/thumb/img-1.jpg" 
+          alt="" 
+          data-title="Title" 
+          data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set1/img-2.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/thumb/img-2.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set1/img-3.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/thumb/img-3.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set1/img-4.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/thumb/img-4.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set1/img-5.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/thumb/img-5.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set1/img-6.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set1/thumb/img-6.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-title">
+      <div class="section-header">
+        <h3>Random Size Image Grid</h2>
+          <hr class="title-divider">
+      </div>
+      <div class="showcase" data-nav="dot">
+        <div data-src="./assets/images/set2/img-1.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-1.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set2/img-2.jpeg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-2.jpeg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set2/img-3.jpeg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-3.jpeg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set2/img-4.png" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-4.png" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set2/img-5.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-5.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+        <div data-src="./assets/images/set2/img-6.jpg" data-type="image" class="showcase-item">
+          <img src="./assets/images/set2/img-6.jpg" alt="" data-title="Title" data-desc="Description">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
         <h3>YouTube Video</h3>
         <hr class="title-divider">
       </div>
+      <p style="font-size: 8px; text-align: center;">(Not available yet)</p>
       <!-- <div class="showcase-item">
                 <iframe id="ytplayer" type="text/html" width="auto" height="auto"
                     src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&color=white" frameborder="0"
                     allowfullscreen>
             </div> -->
-      <div class="showcase-item">
-        <iframe width="auto" height="auto" src="https://www.youtube.com/embed/pWKCx717lFU" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+      <div class="showcase" data-nav="dot">
+        <div class="showcase-item" data-type="video/youtube">
+          <iframe width="auto" height="auto" src="https://www.youtube.com/embed/pWKCx717lFU"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-title">
+      <div class="section-header">
         <h3>Vimeo Video</h3>
         <hr class="title-divider">
       </div>
-
-      <div class="showcase-item">
-        <iframe src="https://player.vimeo.com/video/298067329?h=4e3c11fb75 width=" auto" height="auto" frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"></iframe>
-        <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
+      <p style="font-size: 8px; text-align: center;">(Not available yet)</p>
+      <div class="showcase" data-nav="dot">
+        <div class="showcase-item" data-type="video/vimeo">
+          <iframe src="https://player.vimeo.com/video/298067329?h=4e3c11fb75 width=" auto" height="auto" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-title">
+      <div class="section-header">
         <h3>HTML Video</h3>
         <hr class="title-divider">
       </div>
-      <div class="showcase-item">
-        <video width="auto" controls>
-          <source src="./assets/videos/video1.mp4" type="video/mp4">
-        </video>
+      <p style="font-size: 8px; text-align: center;">(Not available yet)</p>
+      <div class="showcase" data-nav="dot">
+        <div class="showcase-item" data-type="video/html">
+          <video width="auto" controls>
+            <source src="./assets/videos/video1.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </section>
 
 
     <!-- slb popup -->
-    <div id="slb">
-      <div id="slb-wrap" class="slb-place-center-col">
-        <button id="slb-close-btn" class="slb-btn">
-          <i class="icon-x slb-icon-lg"></i>
-        </button>
-        <div id="slb-content">
-          <div id="slb-content-row">
-            <div class="slb-content-col slb-nav-btns slb-place-center-row">
-              <button id="slb-prev-btn" class="slb-btn">
-                <i class="icon-chevron-left slb-icon-lg"></i>
-              </button>
-            </div>
-            <div id="slb-display-content" class="slb-content-col slb-place-center-row">
-              <div id="slb-active-container">
-                <!-- image goes here -->
-              </div>
-            </div>
-            <div class="slb-content-col slb-nav-btns slb-place-center-row">
-              <button id="slb-next-btn" class="slb-btn">
-                <i class="icon-chevron-right slb-icon-lg"></i>
-              </button>
-            </div>
-          </div>
+    <!-- <div id="slb"> -->
 
-          <div id="slb-display-controls" class="slb-place-center-row">
-            <button id="slb-zoom-in-btn" class="slb-btn-control">
-              <i class="icon-zoom-in slb-icon"></i>
-            </button>
-            <button id="slb-zoom-out-btn" class="slb-btn-control">
-              <i class="icon-zoom-out slb-icon"></i>
-            </button>
-            <button id="slb-rotate-left-btn" class="slb-btn-control">
-              <i class="icon-arrow-counterclockwise slb-icon"></i>
-            </button>
-            <button id="slb-rotate-right-btn" class="slb-btn-control">
-              <i class="icon-arrow-clockwise slb-icon"></i>
-            </button>
-            <button id="slb-fullscreen-btn" class="slb-btn-control">
-              <i class="icon-fullscreen slb-icon"></i>
-            </button>
-            <button id="slb-fullscreen-exit-btn" class="slb-btn-control">
-              <i class="icon-fullscreen-exit slb-icon"></i>
-            </button>
-          </div>
+      <!-- <button id="slb-btn-close" class="slb-btn">
+        <i class="icon-x slb-icon"></i>
+      </button> -->
+<!-- 
 
-          <div id="slb-navigation">
-            <div id="slb-navigation-dots">
-              <div class="slb-dot-nav">
-                <span class="slb-dot-nav-btn"></span>
-              </div>
-              <div class="slb-dot-nav">
-                <span class="slb-dot-nav-btn"></span>
-              </div>
-              <div class="slb-dot-nav">
-                <span class="slb-dot-nav-btn"></span>
-              </div>
-              <div class="slb-dot-nav">
-                <span class="slb-dot-nav-btn"></span>
-              </div>
-            </div>
-
-            <div id="slb-navigation-thumbs">
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-1.jpg" alt="">
-              </div>
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-2.jpg" alt="">
-              </div>
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-4.jpg" alt="">
-              </div>
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-6.jpg" alt="">
-              </div>
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-3.jpg" alt="">
-              </div>
-              <div class="slb-thumbs-item">
-                <img src="./assets/images/set1/img-5.jpg" alt="">
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
+  <div id="slb-display">
+    <button id="slb-prev-btn" class="slb-btn slb-btn-nav">
+      <i class="icon-chevron-left slb-icon"></i>
+    </button>
+    <div id="slb-display-content">
+      
     </div>
+    <button id="slb-next-btn" class="slb-btn slb-btn-nav">
+      <i class="icon-chevron-right slb-icon"></i>
+    </button>
+  </div>
+  
+-->
+      <!-- <div id="slb-controls">
+        <button id="slb-zoom-in-btn" class="slb-btn slb-btn-control">
+          <i class="icon-zoom-in slb-icon"></i>
+        </button>
+        <button id="slb-zoom-out-btn" class="slb-btn slb-btn-control">
+          <i class="icon-zoom-out slb-icon"></i>
+        </button>
+        <button id="slb-rotate-left-btn" class="slb-btn slb-btn-control">
+          <i class="icon-arrow-counterclockwise slb-icon"></i>
+        </button>
+        <button id="slb-rotate-right-btn" class="slb-btn slb-btn-control">
+          <i class="icon-arrow-clockwise slb-icon"></i>
+        </button>
+        <button id="slb-fullscreen-btn" class="slb-btn slb-btn-control">
+          <i class="icon-fullscreen slb-icon"></i>
+        </button>
+        <button id="slb-fullscreen-exit-btn" class="slb-btn slb-btn-control">
+          <i class="icon-fullscreen-exit slb-icon"></i>
+        </button>
+      </div> -->
+
+
+      <!-- <div id="slb-navigation-dots">
+        <div class="slb-nav-dot">
+          <span class="slb-nav-dot-btn"></span>
+        </div>
+        <div class="slb-nav-dot media-active">
+          <span class="slb-nav-dot-btn"></span>
+        </div>
+        <div class="slb-nav-dot">
+          <span class="slb-nav-dot-btn"></span>
+        </div>
+      </div> -->
+
+      <!-- <div id="slb-navigation-thumbs">
+        <div class="slb-nav-thumb">
+          <img src="./assets/images/set1/img-1.jpg" class="slb-nav-thumb-btn">
+        </div>
+        <div class="slb-nav-thumb">
+          <img src="./assets/images/set1/img-2.jpg" class="slb-nav-thumb-btn">
+        </div>
+        <div class="slb-nav-thumb">
+          <img src="./assets/images/set1/img-4.jpg" class="slb-nav-thumb-btn">
+        </div>
+      </div> -->
+    <!-- </div> -->
 
   </div>
 </body>
