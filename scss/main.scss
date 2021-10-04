@@ -98,4 +98,15 @@ section{
             }
         }
     }
+    .showcase-item-video{
+        position: relative;
+    }
+    .showcase-item-video::before{
+        content: "";
+        background: transparent;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+    }
 }

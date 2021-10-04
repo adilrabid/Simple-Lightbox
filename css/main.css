@@ -100,3 +100,16 @@ section.section {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
+
+.showcase .showcase-item-video {
+  position: relative;
+}
+
+.showcase .showcase-item-video::before {
+  content: "";
+  background: transparent;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}

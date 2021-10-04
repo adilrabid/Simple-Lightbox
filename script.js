@@ -335,6 +335,14 @@ document.addEventListener("DOMContentLoaded", function () {
         theDisplayNode.style.transform = "rotate(" + displayRotation + "deg)";
     }
 
+    
+    /**
+     * generate a invisible layer over videos
+     */
+    function generateInvisibleVideoLayer(params) {
+        
+    }
+
 
 
 

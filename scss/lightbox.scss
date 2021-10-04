@@ -70,7 +70,7 @@
   #slb{
       transform: scale(0);
       opacity: 0;
-      transition: 200ms ease-in-out;
+      transition: opacity 200ms ease-in-out;
       padding: 0 10px;
       display: flex;
       flex-direction: column;

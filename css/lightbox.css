@@ -73,8 +73,8 @@
   -webkit-transform: scale(0);
           transform: scale(0);
   opacity: 0;
-  -webkit-transition: 200ms ease-in-out;
-  transition: 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   padding: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
