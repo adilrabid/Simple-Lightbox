@@ -22,7 +22,8 @@ var lb = {
      * Defining default class names
      */
     containerClass: 'showcase',
-    itemClass: 'showcase-item'
+    itemClass: 'showcase-item',
+    prefix: 'slb'
 };
 /**
  * Class to generate and manage dom elements
@@ -70,8 +71,19 @@ var Dom = /** @class */ (function () {
         }
         return this;
     };
+    Dom.prototype.appendTo = function (elements, containner) {
+        this.append(elements, containner);
+    };
     Dom.prototype.on = function (type, el, cb) {
         el.addEventListener(type, cb);
+    };
+    Dom.prototype.parent = function (ele, parentClass) {
+        if (parentClass === void 0) { parentClass = "showcase"; }
+        var element = ele;
+        while (!element.classList.contains(parentClass)) {
+            element = element.parentElement;
+        }
+        return element;
     };
     return Dom;
 }());
@@ -81,53 +93,70 @@ var DomLightBox = /** @class */ (function (_super) {
         var _this = _super.call(this, tag) || this;
         _this.isActive = false;
         _this.activeClassName = 'slb-active';
+        _this.count = 0;
+        _this.content = [];
+        _this.nav = null;
+        _this.navType = null;
+        _this.clickedItem = 0;
         _this.isActive = true;
         return _this;
     }
     Object.defineProperty(DomLightBox.prototype, "currentStatus", {
-        /**
-         * Get lightbox overlay status
-         */
+        // Get lightbox overlay status
         get: function () {
             return this.isActive;
         },
         enumerable: false,
         configurable: true
     });
-    /**
-     * Prepare lightbox overlay
-     */
+    // Prepare lightbox overlay
     DomLightBox.prototype.prepare = function () {
         var _this = this;
         // creating elements
         var closeBtn = this.create('button', 'slb-btn-close', 'slb-btn');
         var closeIcon = this.create('i', null, ['icon-x', 'slb-icon']);
         var displayArea = this.create('div', 'slb-display');
-        var prevBtn = this.create('btn', 'slb-prev-btn', ['slb-btn', 'slb-btn-nav']);
-        var prevBtnIcon = this.create('i', null, ['icon-chevron-left', 'slb-icon']);
-        var nestBtn = this.create('btn', 'slb-next-btn', ['slb-btn', 'slb-btn-nav']);
-        var nextBtnIcon = this.create('i', null, ['icon-chevron-right', 'slb-icon']);
-        var displayContentArea = this.create('i', null, 'slb-display-content');
+        this.displayArea = displayArea;
+        var screen = this.create('div', 'slb-display-content', null);
+        this.append(screen, displayArea);
+        console.log("The target content to display: ");
+        console.table(this.content[this.clickedItem].tag);
+        var media = this.create(this.content[this.clickedItem].tag, null, 'slb-display-media');
+        media.src = this.content[this.clickedItem].src;
+        this.append(media, screen);
         // placing elements
         this.append(closeIcon, closeBtn);
-        this.append(nextBtnIcon, nestBtn);
-        this.append(prevBtnIcon, prevBtn);
-        var mainAreaElements = [
+        this.appendTo([
             closeBtn,
-            displayArea,
-            nestBtn,
-            prevBtn,
-            displayContentArea
-        ];
-        this.append(mainAreaElements, this.mainElement);
+            displayArea
+        ], this.mainElement);
+        if (this.count > 1) {
+            this.generateNavBtns();
+        }
+        if (this.navType) {
+            this.generate_nav(this.navType);
+        }
         // adding event listener
         this.on('click', closeBtn, function () {
             _this.close();
         });
+        this.isClickedOutside();
     };
-    /**
-     * Display or hides the lightbox overlay
-     */
+    DomLightBox.prototype.generateNavBtns = function () {
+        var prevBtn = this.create('btn', 'slb-prev-btn', ['slb-btn', 'slb-btn-nav']);
+        var prevBtnIcon = this.create('i', null, ['icon-chevron-left', 'slb-icon']);
+        var nestBtn = this.create('btn', 'slb-next-btn', ['slb-btn', 'slb-btn-nav']);
+        var nextBtnIcon = this.create('i', null, ['icon-chevron-right', 'slb-icon']);
+        this.append(nextBtnIcon, nestBtn);
+        this.append(prevBtnIcon, prevBtn);
+        // this.appendTo([
+        //     prevBtn,
+        //     nestBtn
+        // ], this.displayArea)
+        this.displayArea.prepend(prevBtn);
+        this.displayArea.append(nestBtn);
+    };
+    //Controls lightbox's visibility
     DomLightBox.prototype.state = function (status) {
         this.isActive = status;
         if (this.isActive) {
@@ -137,14 +166,47 @@ var DomLightBox = /** @class */ (function (_super) {
             this.close();
         }
     };
-    DomLightBox.prototype.manageShowcase = function (showcase) {
-        console.log(showcase);
-        var count = 0;
-        showcase.querySelectorAll('.showcase-item').forEach(function (item) {
-            console.log(item);
-            count++;
+    DomLightBox.prototype.generate_nav = function (type) {
+        if (type === void 0) { type = 'dot'; }
+        var self = this;
+        var navID = "slb-navigation-" + type + "s";
+        var nav = this.create('div', navID, 'slb-navigation');
+        this.content.forEach(function (obj) {
+            var navBtn = self.create('div', null, "slb-nav-" + type);
+            var el = type === "thumb" ? 'img' : 'span';
+            var navBtnELement = self.create(el, null, "slb-nav-" + type + "-btn");
+            if (navBtnELement.nodeName.toLowerCase() === 'img') {
+                navBtnELement.src = obj.thumb;
+            }
+            navBtn.appendChild(navBtnELement);
+            // navBtn.addEventListener('click', appearContent)
+            nav.appendChild(navBtn);
         });
-        console.log('count : ', count);
+        this.nav = nav;
+        this.mainElement.appendChild(nav);
+    };
+    DomLightBox.prototype.manageShowcase = function (target) {
+        var showcase = this.parent(target, lb.containerClass);
+        this.navType = showcase.dataset.nav;
+        var showcaseItems = showcase.querySelectorAll('.showcase-item');
+        var totalChilds = showcaseItems.length;
+        for (var i = 0; i < totalChilds; i++) {
+            this.content.push({
+                serial: i,
+                src: showcaseItems[i].dataset.src,
+                type: showcaseItems[i].dataset.type,
+                thumb: showcaseItems[i].firstElementChild.src,
+                title: showcaseItems[i].firstElementChild.dataset.title,
+                desc: showcaseItems[i].firstElementChild.dataset.desc,
+                tag: showcaseItems[i].firstElementChild.tagName.toLowerCase(),
+            });
+            if (target.src === showcaseItems[i].firstElementChild.src) {
+                this.clickedItem = i;
+            }
+            this.count++;
+        }
+        console.table(this.content);
+        console.log(this.clickedItem);
     };
     DomLightBox.prototype.open = function () {
         this.prepare();
@@ -152,6 +214,38 @@ var DomLightBox = /** @class */ (function (_super) {
     };
     DomLightBox.prototype.close = function () {
         this.mainElement.classList.remove(this.activeClassName);
+        this.reset();
+    };
+    DomLightBox.prototype.isClickedOutside = function () {
+        var self = this;
+        // this.mainElement.addEventListener('click', function (e) {
+        // })
+        this.on('click', this.mainElement, function (e) {
+            if (e.target === e.currentTarget) {
+                self.close();
+            }
+        });
+        this.on('click', this.displayArea, function (e) {
+            if (e.target === e.currentTarget) {
+                self.close();
+            }
+        });
+    };
+    DomLightBox.prototype.removeAllChild = function (parent) {
+        var lastChild = parent.lastElementChild;
+        while (lastChild) {
+            parent.removeChild(lastChild);
+            lastChild = parent.lastElementChild;
+        }
+    };
+    DomLightBox.prototype.reset = function () {
+        this.count = 0;
+        this.removeAllChild(this.displayArea);
+        this.content = [];
+        this.navType = null;
+        if (this.nav) {
+            this.nav.remove();
+        }
     };
     return DomLightBox;
 }(Dom));
@@ -162,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var items = document.getElementsByClassName(lb.itemClass);
     for (var i = 0; i < items.length; i++) {
         lightbox.on('click', items[i], function (e) {
-            lightbox.manageShowcase(e.target.closest(".showcase"));
+            lightbox.manageShowcase(e.target);
             lightbox.state(true);
         });
     }
